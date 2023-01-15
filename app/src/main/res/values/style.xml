@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Text Styles -->
+    <!--    신규 스타일 -->
+    <style name="Display1A">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">26dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+    <style name="Display2A">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">32dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+    <style name="Display3A">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">44dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+    </style>
+    <style name="HeadingA">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+    <style name="SubHeading1A">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+    <style name="SubHeading2A">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+
+    <style name="Body1A">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+    <style name="Body1MDA">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+    <style name="Body2A">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+    <style name="Body2MDA">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+    <style name="Body3A">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+    <style name="Body3MDA">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+    <style name="Caption1A">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">11dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+    <style name="Caption2A">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+    <style name="Label1A">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">11dp</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+    <style name="Label2A">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+    <style name="Label3A">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+    </style>
+    <!--신규 스타일 end-->
+
+    <style name="Display2">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">52dp</item>
+        <item name="android:lineSpacingExtra">12dp</item>
+    </style>
+
+    <style name="Display1">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">44dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+    </style>
+
+    <style name="Heading5">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">32dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+    </style>
+
+    <style name="Heading4">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">28dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+    </style>
+
+    <style name="Heading3">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+    </style>
+
+    <style name="Heading2">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+
+    <style name="Body2">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+
+    <style name="Heading1">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="Body1">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="Label3">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="Caption3">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="Label2">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="Caption2">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="Label1">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="Caption1">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+</resources>

@@ -7,4 +7,99 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Brand Color Mint -->
+    <color name="mt_5">#00D2B3</color>
+    <color name="mt_4">#33DBC2</color>
+    <color name="mt_3">#66E4D1</color>
+    <color name="mt_2">#99EDE1</color>
+    <color name="mt_1">#CCF6F0</color>
+
+    <!-- Status Color -->
+    <!-- Green -->
+    <color name="gr_1">#E7F9F1</color>
+    <color name="gr_2">#BFF0DB</color>
+    <color name="gr_3">#98E7C4</color>
+    <color name="gr_4">#70DEAD</color>
+    <color name="gr_5">#48D597</color>
+    <color name="gr_6">#2CC07F</color>
+    <color name="gr_7">#239864</color>
+    <color name="gr_8">#19704A</color>
+    <color name="gr_9">#104930</color>
+
+    <!-- Red -->
+    <color name="rd_1">#FCDCDF</color>
+    <color name="rd_2">#F8AFB5</color>
+    <color name="rd_3">#F5828B</color>
+    <color name="rd_4">#F15461</color>
+    <color name="rd_5">#EE2737</color>
+    <color name="rd_6">#D31020</color>
+    <color name="rd_7">#A60D19</color>
+    <color name="rd_8">#790912</color>
+    <color name="rd_9">#4B050B</color>
+
+    <!-- Yellow -->
+    <color name="yl_1">#FEEED2</color>
+    <color name="yl_2">#FFDDA1</color>
+    <color name="yl_3">#FFCC70</color>
+    <color name="yl_4">#FFBA3F</color>
+    <color name="yl_5">#FFA400</color>
+    <color name="yl_6">#EC9800</color>
+    <color name="yl_7">#D48800</color>
+    <color name="yl_8">#A36800</color>
+    <color name="yl_9">#724900</color>
+
+    <!-- Neutral Color -->
+    <color name="nt_white">#FFFFFF</color>
+    <color name="nt_0">#F3F3F5</color>
+    <color name="nt_1">#E1E1E3</color>
+    <color name="nt_2">#C5C6C9</color>
+    <color name="nt_3">#ABACAF</color>
+    <color name="nt_4">#969696</color>
+    <color name="nt_5">#797A7D</color>
+    <color name="nt_6">#646464</color>
+    <color name="nt_7">#49494B</color>
+    <color name="nt_8">#323232</color>
+    <color name="nt_9">#181819</color>
+    <color name="nt_black">#000000</color>
+
+    <color name="background_primary">@color/nt_white</color>
+    <color name="background_secondary">@color/nt_0</color>
+    <color name="background_tertiary">@color/nt_1</color>
+    <color name="background_disabled">@color/nt_0</color>
+    <color name="background_overlay_dark">#4C000000</color>
+    <color name="background_overlay_light">#19000000</color>
+    <color name="background_negative">@color/rd_5</color>
+    <color name="background_warning">@color/yl_5</color>
+    <color name="background_positive">@color/gr_5</color>
+    <color name="background_negative_light">@color/rd_1</color>
+    <color name="background_warning_light">@color/yl_1</color>
+    <color name="background_positive_light">@color/gr_1</color>
+    <color name="background_always_dark">@color/nt_black</color>
+    <color name="background_always_light">@color/nt_white</color>
+
+    <color name="background_primary_opacity10">#1AFFFFFF</color>
+    <color name="background_primary_opacity30">#4DFFFFFF</color>
+    <color name="background_primary_opacity50">#80FFFFFF</color>
+    <color name="background_primary_opacity70">#B3FFFFFF</color>
+
+    <color name="content_primary">@color/nt_9</color>
+    <color name="content_secondary">@color/nt_7</color>
+    <color name="content_tertiary">#797A7D</color>
+    <color name="content_disabled">@color/nt_3</color>
+    <color name="content_on_color">@color/nt_white</color>
+    <color name="content_negative">@color/rd_5</color>
+    <color name="content_positive">@color/gr_5</color>
+    <color name="content_warning">@color/yl_5</color>
+
+    <color name="content_tertiary100">#FF797A7D</color>
+
+    <color name="border_opaque">@color/nt_2</color>
+    <color name="border_selected">@color/nt_9</color>
+    <color name="border_disabled">@color/nt_1</color>
+    <color name="border_negative">@color/rd_5</color>
+    <color name="border_warning">@color/yl_5</color>
+    <color name="border_positive">@color/gr_5</color>
+
+    <color name="divider_header">@color/nt_1</color>
 </resources>
