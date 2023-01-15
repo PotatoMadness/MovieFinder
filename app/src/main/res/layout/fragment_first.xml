@@ -32,8 +32,10 @@
             android:drawableRight="@drawable/icon_close_circle_fill_lg"
             android:drawableTint="@color/content_tertiary" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movie_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"/>
 </androidx.appcompat.widget.LinearLayoutCompat>

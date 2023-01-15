@@ -54,6 +54,7 @@ class MovieFinderFragment : Fragment() {
         binding.etMovieQuery.onRightDrawableClicked {
             it.text.clear()
         }
+        binding.rvMovieList.adapter = MovieListAdapter()
     }
 
     private fun initObserver() {
