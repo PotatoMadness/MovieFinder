@@ -7,7 +7,7 @@ class MovieFinderRepository(
     private val service: MovieFindService) {
     suspend fun getMovies(query: String, start: Int, size: Int): Result<List<MovieItem>> {
         kotlin.runCatching {
-            service.getMovies(query = query, start = start, display = size)
+            service.getMovies(clientId = "9aBH0dVKy0Nw9QpXgQ8i", secretKey = "nW5zzTbsyc", query = query, start = start, display = size)
         }.onSuccess {
             return Result.success(it.items)
         }.onFailure {

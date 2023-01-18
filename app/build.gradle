@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'kotlin-android'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -32,6 +34,7 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
+        dataBinding = true
         viewBinding true
     }
 }
@@ -56,6 +59,8 @@ dependencies {
 
     //dagger-hilt
     implementation "com.google.dagger:hilt-android:2.38.1"
+    kapt "com.google.dagger:hilt-compiler:2.38.1"
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.3"))
     implementation("com.squareup.okhttp3:okhttp")

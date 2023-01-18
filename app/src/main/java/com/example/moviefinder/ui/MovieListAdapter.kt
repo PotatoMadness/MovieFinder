@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.moviefinder.databinding.ListMovieItemBinding
 import com.example.moviefinder.model.MovieItem
 
-class MovieListAdapter()
+class MovieListAdapter
     : PagingDataAdapter<MovieItem, MovieListAdapter.ViewHolder>(DIFF_ITEM_STATION_DATA) {
 
     class ViewHolder(val binding: ListMovieItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -27,6 +27,7 @@ class MovieListAdapter()
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder.binding) {
             getItem(position)?.let { item ->
+
                 Glide.with(holder.itemView.context).load(item.image)
                     .into(imgMovieItem)
                 tvTitle.text = item.title

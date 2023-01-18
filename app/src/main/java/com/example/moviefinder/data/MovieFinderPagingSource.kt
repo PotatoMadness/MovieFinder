@@ -16,7 +16,7 @@ class MovieFinderPagingSource(
         }
     }
 
-    override suspend fun load(params: PagingSource.LoadParams<Int>): PagingSource.LoadResult<Int, MovieItem> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieItem> {
         val start = params.key ?: defaultStart
 
         return try {
@@ -34,9 +34,9 @@ class MovieFinderPagingSource(
             } else {
                 start - defaultDisplay
             }
-            PagingSource.LoadResult.Page(items, prevKey, nextKey)
+            LoadResult.Page(items, prevKey, nextKey)
         } catch (exception: Exception) {
-            PagingSource.LoadResult.Error(exception)
+            LoadResult.Error(exception)
         }
     }
 
