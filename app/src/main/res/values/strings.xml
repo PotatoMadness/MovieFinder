@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">MovieFinder</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
+
+    <string name="movie_director">감독 : %s</string>
+    <string name="movie_actors">출연 : %s</string>
+    <string name="movie_rate">평점 : %s</string>
 </resources>
