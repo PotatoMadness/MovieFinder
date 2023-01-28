@@ -1,7 +1,7 @@
 package com.example.moviefinder.di
 
+import com.example.moviefinder.api.MovieFindService
 import com.example.moviefinder.data.MovieFinderRepository
-import com.example.moviefinder.data.local.MovieFinderLocalDataSource
 import com.example.moviefinder.data.remote.MovieFinderRemoteDataSource
 import dagger.Module
 import dagger.Provides
@@ -11,11 +11,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RepositoryModule {
+object DataModule {
     @Provides
     @Singleton
-    fun provideMovieFinderRepository(
-        movieFinderRemoteDataSource: MovieFinderRemoteDataSource,
-        movieFinderLocalDataSource: MovieFinderLocalDataSource
-    ): MovieFinderRepository = MovieFinderRepository(movieFinderRemoteDataSource, movieFinderLocalDataSource)
+    fun provideMovieFinderRemoteDataSource(
+        movieFindService: MovieFindService
+    ): MovieFinderRemoteDataSource = MovieFinderRemoteDataSource(movieFindService)
 }

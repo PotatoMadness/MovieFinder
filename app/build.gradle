@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'com.example.moviefinder'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.moviefinder"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -49,6 +49,11 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     implementation 'androidx.paging:paging-common-ktx:3.1.1'
     implementation 'androidx.paging:paging-runtime-ktx:3.1.1'
+
+    implementation 'androidx.room:room-common:2.5.0'
+    api 'androidx.room:room-ktx:2.5.0'
+    kapt 'androidx.room:room-compiler:2.5.0'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
