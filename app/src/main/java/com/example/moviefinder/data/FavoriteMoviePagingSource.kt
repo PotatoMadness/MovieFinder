@@ -4,8 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.moviefinder.model.MovieItem
 
-class MovieFinderPagingSource(
-    private val query: String,
+class FavoriteMoviePagingSource(
     private val movieFinderRepository: MovieFinderRepository
 ) : PagingSource<Int, MovieItem>() {
     override fun getRefreshKey(state: PagingState<Int, MovieItem>): Int? {
@@ -20,8 +19,7 @@ class MovieFinderPagingSource(
         val start = params.key ?: defaultStart
 
         return try {
-            val result = movieFinderRepository.getMovies(query, start, params.loadSize)
-            if (result.isFailure) throw Exception("찾을수 없습니다")
+            val result = movieFinderRepository.getFavoriteMovieList()
 
             val items = result.getOrThrow()
             val nextKey = if (items.size < params.loadSize) null
