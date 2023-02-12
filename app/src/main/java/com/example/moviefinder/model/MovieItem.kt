@@ -14,4 +14,4 @@ data class MovieItem(
     val director: String,
     val actor: String,
     val userRating: String
-)
+): java.io.Serializable

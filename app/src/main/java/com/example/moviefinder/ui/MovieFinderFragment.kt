@@ -12,8 +12,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation
-import com.example.moviefinder.R
-import com.example.moviefinder.databinding.FragmentMovieFinderBinding
+import androidx.navigation.fragment.findNavController
+import com.example.app.R
+import com.example.app.databinding.FragmentMovieFinderBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.filterNotNull
@@ -57,7 +58,8 @@ class MovieFinderFragment : Fragment() {
         movieAdapter = MovieListAdapter(onFavoriteClicked =  { item, isFavorite -> // onClick
             viewModel.updateFavorite(item, isFavorite)
         }) {
-            Navigation.findNavController(binding.root).navigate(R.id.action_finderFragment_to_detailFragment)
+            val action = MovieFinderFragmentDirections.actionFinderFragmentToDetailFragment(it)
+            findNavController().navigate(action)
         }
         binding.rvMovieList.adapter = movieAdapter
         binding.btnFavorite.setOnClickListener{

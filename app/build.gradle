@@ -4,10 +4,10 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-android'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
-    namespace 'com.example.moviefinder'
     compileSdk 33
 
     defaultConfig {
@@ -45,6 +45,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation 'androidx.fragment:fragment-ktx:1.4.0-alpha04'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     implementation 'androidx.paging:paging-common-ktx:3.1.1'

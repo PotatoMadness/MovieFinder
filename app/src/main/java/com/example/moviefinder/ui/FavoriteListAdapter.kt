@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.moviefinder.R
-import com.example.moviefinder.databinding.ListMovieItemBinding
+import com.example.app.R
+import com.example.app.databinding.ListMovieItemBinding
 import com.example.moviefinder.model.MovieItem
 
 // 즐겨찾기 리스트, 영화 리스트 둘다 가지고 있을것

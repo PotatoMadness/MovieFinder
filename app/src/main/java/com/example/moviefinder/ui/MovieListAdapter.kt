@@ -9,14 +9,14 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.moviefinder.R
-import com.example.moviefinder.databinding.ListMovieItemBinding
+import com.example.app.R
+import com.example.app.databinding.ListMovieItemBinding
 import com.example.moviefinder.model.MovieItem
 // 즐겨찾기 리스트, 영화 리스트 둘다 가지고 있을것
 // 즐겨찾기 어댑터 분리
 class MovieListAdapter(
     private val onFavoriteClicked: (item: MovieItem, isFavorite: Boolean) -> Unit,
-    private val onItemClicked: ((url: String) -> Unit)? = null
+    private val onItemClicked: ((item: MovieItem) -> Unit)? = null
 ) : PagingDataAdapter<MovieItem, MovieListAdapter.ViewHolder>(DIFF_ITEM_STATION_DATA) {
 
     var favoriteList: List<MovieItem> = arrayListOf()
@@ -37,7 +37,7 @@ class MovieListAdapter(
         with(holder.binding) {
             getItem(position)?.let { item ->
                 root.setOnClickListener {
-                    onItemClicked?.invoke(item.link)
+                    onItemClicked?.invoke(item)
                 }
                 val context = holder.itemView.context
                 Glide.with(context).load(item.image)

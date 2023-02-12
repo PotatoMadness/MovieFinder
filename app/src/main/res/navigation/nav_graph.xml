@@ -31,5 +31,9 @@
         android:id="@+id/detailFragment"
         android:name="com.example.moviefinder.ui.DetailFragment"
         android:label="detailFragment"
-        tools:layout="@layout/fragment_detail"/>
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="movieItem"
+            app:argType="com.example.moviefinder.model.MovieItem" />
+    </fragment>
 </navigation>
