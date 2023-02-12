@@ -9,11 +9,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.paging.PagingData
+import androidx.navigation.Navigation
+import com.example.moviefinder.R
 import com.example.moviefinder.databinding.FragmentFavoriteListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -53,7 +53,7 @@ class FavoriteListFragment : Fragment() {
         })
         binding.rvFavList.adapter = favoriteAdapter
         binding.btnClose.setOnClickListener{
-            viewModel.moveTo(MainViewModel.UIState.MovieFinder)
+            Navigation.findNavController(binding.root).navigate(R.id.action_favoriteFragment_to_finderFragment)
         }
     }
 

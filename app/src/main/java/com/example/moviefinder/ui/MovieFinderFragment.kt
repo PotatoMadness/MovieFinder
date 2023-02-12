@@ -11,6 +11,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.Navigation
+import com.example.moviefinder.R
 import com.example.moviefinder.databinding.FragmentMovieFinderBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -51,17 +53,17 @@ class MovieFinderFragment : Fragment() {
         movieAdapter = MovieListAdapter(onFavoriteClicked =  { item -> // onClick
             viewModel.updateFavorite(item)
         }) {
-            viewModel.moveTo(MainViewModel.UIState.DetailMovie(it))
+            Navigation.findNavController(binding.root).navigate(R.id.action_finderFragment_to_detailFragment)
         }
         binding.rvMovieList.adapter = movieAdapter
         binding.btnFavorite.setOnClickListener{
-            viewModel.moveTo(MainViewModel.UIState.FavoriteList)
+            Navigation.findNavController(binding.root).navigate(R.id.action_finderFragment_to_favoriteFragment)
         }
     }
 
     private fun initObserver() {
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.RESUMED){
+            repeatOnLifecycle(Lifecycle.State.CREATED){
                 launch {
                     viewModel.movieList.collectLatest {
                         // 검색결과 처리
