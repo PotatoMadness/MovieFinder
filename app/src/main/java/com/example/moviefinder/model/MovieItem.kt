@@ -13,6 +13,5 @@ data class MovieItem(
     val pubDate: String,
     val director: String,
     val actor: String,
-    val userRating: String,
-    var isFavorite: Boolean = false
+    val userRating: String
 )

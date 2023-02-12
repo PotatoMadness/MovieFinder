@@ -5,19 +5,18 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.moviefinder.R
 import com.example.moviefinder.databinding.ListMovieItemBinding
 import com.example.moviefinder.model.MovieItem
+
 // 즐겨찾기 리스트, 영화 리스트 둘다 가지고 있을것
 // 즐겨찾기 어댑터 분리
-class MovieListAdapter(
+class FavoriteListAdapter(
     private val onFavoriteClicked: (item: MovieItem, isFavorite: Boolean) -> Unit,
     private val onItemClicked: ((url: String) -> Unit)? = null
-) : PagingDataAdapter<MovieItem, MovieListAdapter.ViewHolder>(DIFF_ITEM_STATION_DATA) {
+) : RecyclerView.Adapter<FavoriteListAdapter.ViewHolder>(){
 
     var favoriteList: List<MovieItem> = arrayListOf()
     class ViewHolder(val binding: ListMovieItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -35,7 +34,7 @@ class MovieListAdapter(
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder.binding) {
-            getItem(position)?.let { item ->
+            favoriteList[position].let { item ->
                 root.setOnClickListener {
                     onItemClicked?.invoke(item.link)
                 }
@@ -47,37 +46,15 @@ class MovieListAdapter(
                 tvActors.text = Html.fromHtml(String.format(context.getString(R.string.movie_actors), item.actor), Html.FROM_HTML_MODE_LEGACY).toString()
                 tvRate.text = Html.fromHtml(String.format(context.getString(R.string.movie_rate), item.userRating), Html.FROM_HTML_MODE_LEGACY).toString()
 
-                val isFavorite = favoriteList.any { it.link == item.link }
-                val imgRes = if(isFavorite) R.drawable.icon_star_fill_lg else R.drawable.icon_star_lg
+                val imgRes = R.drawable.icon_star_fill_lg
                 imgFav.setImageDrawable(context.getDrawable(imgRes))
 
                 imgFav.setOnClickListener{
-                    onFavoriteClicked(item, isFavorite)
+                    onFavoriteClicked(item, true)
                 }
             }
         }
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int, payloads: MutableList<Any>) {
-        if (payloads.isEmpty()) {
-            super.onBindViewHolder(holder, position, payloads);
-        } else {
-            payloads.forEach{
-                if (it is String && it == "replace") {
-                    val item = getItem(position)
-                    val isFavorite = favoriteList.any { it.link == item?.link }
-                    val imgRes = if(isFavorite) R.drawable.icon_star_fill_lg else R.drawable.icon_star_lg
-                    holder.binding.imgFav.setImageDrawable(holder.itemView.context.getDrawable(imgRes))
-
-                }
-            }
-        }
-    }
-
-    companion object {
-        val DIFF_ITEM_STATION_DATA = object : DiffUtil.ItemCallback<MovieItem>() {
-            override fun areItemsTheSame(oldItem: MovieItem, newItem: MovieItem): Boolean = oldItem.link == newItem.link
-            override fun areContentsTheSame(oldItem: MovieItem, newItem: MovieItem): Boolean = oldItem == newItem
-        }
-    }
+    override fun getItemCount(): Int = favoriteList.size
 }

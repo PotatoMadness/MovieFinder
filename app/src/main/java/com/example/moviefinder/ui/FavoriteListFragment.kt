@@ -14,6 +14,7 @@ import com.example.moviefinder.R
 import com.example.moviefinder.databinding.FragmentFavoriteListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -22,7 +23,7 @@ class FavoriteListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: MainViewModel by activityViewModels()
-    private lateinit var favoriteAdapter: MovieListAdapter
+    private lateinit var favoriteAdapter: FavoriteListAdapter
 
 
     override fun onCreateView(
@@ -30,16 +31,13 @@ class FavoriteListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFavoriteListBinding.inflate(inflater, container, false)
-
-        initView()
-        initObserver()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel.getFavoriteList()
+        initView()
+        initObserver()
     }
 
     override fun onDestroyView() {
@@ -48,8 +46,8 @@ class FavoriteListFragment : Fragment() {
     }
 
     private fun initView(){
-        favoriteAdapter = MovieListAdapter (onFavoriteClicked = { item -> // onClick
-            viewModel.updateFavorite(item)
+        favoriteAdapter = FavoriteListAdapter (onFavoriteClicked = { item, isFavorite -> // onClick
+            viewModel.updateFavorite(item, isFavorite)
         })
         binding.rvFavList.adapter = favoriteAdapter
         binding.btnClose.setOnClickListener{
@@ -61,13 +59,9 @@ class FavoriteListFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 launch {
-                    viewModel.favoriteList.collectLatest {
-                        favoriteAdapter.submitData(it)
-                    }
-                }
-                launch {
-                    viewModel.changeFavorite.collectLatest {
-                        viewModel.getFavoriteList()
+                    viewModel.favoriteList.filterNotNull().collectLatest {
+                        favoriteAdapter.favoriteList = it
+                        favoriteAdapter.notifyDataSetChanged()
                     }
                 }
             }

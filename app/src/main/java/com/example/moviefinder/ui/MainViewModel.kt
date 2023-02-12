@@ -22,8 +22,7 @@ class MainViewModel @Inject constructor(
     private val _movieList = MutableStateFlow<PagingData<MovieItem>>(PagingData.empty())
     val movieList = _movieList.asStateFlow()
 
-    private val _favoriteList = MutableStateFlow<PagingData<MovieItem>>(PagingData.empty())
-    val favoriteList = _favoriteList.asStateFlow()
+    val favoriteList = getFavoriteMovieListUseCase.favoriteList.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
 
     private val _changeFavorite = MutableSharedFlow<Any>()
     val changeFavorite = _changeFavorite.asSharedFlow()
@@ -32,8 +31,13 @@ class MainViewModel @Inject constructor(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            query.debounce(1000).collectLatest {
-                findMovie()
+            launch {
+                query.debounce(1000).collectLatest {
+                    findMovie()
+                }
+            }
+            launch {
+                getFavoriteList()
             }
         }
     }
@@ -41,14 +45,14 @@ class MainViewModel @Inject constructor(
     suspend fun findMovie() { // adapter에서 payload 적용하면 parameter로 전달
         if (query.value.isNullOrEmpty()) _movieList.emit(PagingData.empty())
         else {
-            val result = findMovieUseCase.invoke(query.value)
+            val result = findMovieUseCase.invoke(query.value, viewModelScope)
             _movieList.emit(result.first())
         }
     }
 
-    fun updateFavorite(item: MovieItem){
+    fun updateFavorite(item: MovieItem, isFavorite: Boolean){
         viewModelScope.launch(Dispatchers.IO) {
-            val result = updateFavoriteMovieUseCase.invoke(item)
+            val result = updateFavoriteMovieUseCase.invoke(isFavorite, item)
             if (result.isSuccess) {
                 _changeFavorite.emit(Any())
             }
@@ -57,8 +61,7 @@ class MainViewModel @Inject constructor(
 
     fun getFavoriteList() {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = getFavoriteMovieListUseCase.invoke()
-            _favoriteList.emit(result.first())
+            getFavoriteMovieListUseCase.invoke()
         }
     }
 }

@@ -16,6 +16,7 @@ import com.example.moviefinder.R
 import com.example.moviefinder.databinding.FragmentMovieFinderBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 
 /**
@@ -23,7 +24,6 @@ import kotlinx.coroutines.launch
  */
 @AndroidEntryPoint
 class MovieFinderFragment : Fragment() {
-
     private var _binding: FragmentMovieFinderBinding? = null
     private val binding get() = _binding!!
 
@@ -36,9 +36,13 @@ class MovieFinderFragment : Fragment() {
     ): View? {
         _binding = FragmentMovieFinderBinding.inflate(inflater, container, false)
         binding.vm = viewModel
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initView()
         initObserver()
-        return binding.root
     }
 
     override fun onDestroyView() {
@@ -50,8 +54,8 @@ class MovieFinderFragment : Fragment() {
         binding.etMovieQuery.onRightDrawableClicked {
             it.text.clear()
         }
-        movieAdapter = MovieListAdapter(onFavoriteClicked =  { item -> // onClick
-            viewModel.updateFavorite(item)
+        movieAdapter = MovieListAdapter(onFavoriteClicked =  { item, isFavorite -> // onClick
+            viewModel.updateFavorite(item, isFavorite)
         }) {
             Navigation.findNavController(binding.root).navigate(R.id.action_finderFragment_to_detailFragment)
         }
@@ -71,8 +75,9 @@ class MovieFinderFragment : Fragment() {
                     }
                 }
                 launch {
-                    viewModel.changeFavorite.collectLatest {
-                        viewModel.findMovie()
+                    viewModel.favoriteList.filterNotNull().collectLatest {
+                        movieAdapter.favoriteList = it
+                        movieAdapter.notifyItemRangeChanged(0, movieAdapter.itemCount, "replace")
                     }
                 }
             }
