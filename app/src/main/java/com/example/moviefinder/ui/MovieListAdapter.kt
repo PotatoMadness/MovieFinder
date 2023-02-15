@@ -12,8 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.app.R
 import com.example.app.databinding.ListMovieItemBinding
 import com.example.moviefinder.model.MovieItem
-// 즐겨찾기 리스트, 영화 리스트 둘다 가지고 있을것
-// 즐겨찾기 어댑터 분리
+
 class MovieListAdapter(
     private val onFavoriteClicked: (item: MovieItem, isFavorite: Boolean) -> Unit,
     private val onItemClicked: ((item: MovieItem) -> Unit)? = null
