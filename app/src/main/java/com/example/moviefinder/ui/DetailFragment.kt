@@ -92,6 +92,8 @@ class DetailFragment(
         settings.cacheMode = WebSettings.LOAD_NO_CACHE
         settings.supportMultipleWindows()
         settings.javaScriptCanOpenWindowsAutomatically = true
+        settings.mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
+        settings.javaScriptEnabled = true
 
         binding.webviewMovie.webViewClient = WebViewClient()
         binding.webviewMovie.webChromeClient = WebChromeClient()
